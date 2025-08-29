@@ -72,7 +72,7 @@ function App() {
 
     const init = async () => {
       // Simulate some async setup (fetch profile, settings, etc.)
-      await new Promise((resolve) => setTimeout(resolve, 5200));
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
       sdk.actions.ready(); // tell Farcaster splash to close
       setIsReady(true); // show your app

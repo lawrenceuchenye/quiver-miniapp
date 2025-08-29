@@ -10,6 +10,7 @@ import useQuiverStore from "../../store/";
 import { usePrivy } from "@privy-io/react-auth";
 import btnOverlayW from "../../src/assets/btnOverlayW.svg";
 import { loadState } from "../utils";
+import { useAccount, useConnect } from "wagmi";
 //import { useLocation } from "react-router-dom";
 
 const Navbar: React.FC = () => {
@@ -77,8 +78,8 @@ const MobileNav: React.FC = () => {
   const setUserData = useQuiverStore((state) => state.setUserData);
 
   const userData = useQuiverStore((state) => state.userData);
-  //const navigate = useNavigate();
-  const { logout, login } = usePrivy();
+  const { isConnected, address } = useAccount();
+  const { connect, connectors } = useConnect();
 
   const disconnectUser = async () => {
     await logout();
@@ -88,8 +89,7 @@ const MobileNav: React.FC = () => {
   };
 
   const connectUser = async () => {
-    await login();
-    setConnectClicked(true);
+    connect({ connector: connectors[0] });
   };
 
   return (
@@ -117,9 +117,9 @@ const MobileNav: React.FC = () => {
             #000`,
           }}
           whileTap={{ scale: 1.2 }}
-          onClick={() => (!userData ? connectUser() : disconnectUser())}
+          onClick={() => (!isConnected ? connectUser() : disconnectUser())}
         >
-          {userData ? "Disconnect" : "Connect"}{" "}
+          {isConnected ? "Disconnect" : "Connect"}{" "}
           <i className="fa-solid fa-wallet"></i>
         </m.button>
       </div>
