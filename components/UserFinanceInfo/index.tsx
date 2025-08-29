@@ -238,7 +238,9 @@ const Service: React.FC<ServiceProps> = ({
       >
         {Icon}
       </m.div>
-      <h3 style={{ fontFamily: "Poppins" }}>{serviceName}</h3>
+      <h3 style={{ fontFamily: "Poppins", fontWeight: "400" }}>
+        {serviceName}
+      </h3>
     </div>
   );
 };
