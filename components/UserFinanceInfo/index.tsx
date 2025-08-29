@@ -149,7 +149,7 @@ const UserMoneyCard: React.FC = () => {
 
           <h3 style={{ textTransform: "uppercase" }}>Base</h3>
         </div>
-        <h2>
+        <h2 style={{ fontSize: "18px" }}>
           {formatWalletAddress(userData?.walletAddr)}{" "}
           {copied ? (
             <i
