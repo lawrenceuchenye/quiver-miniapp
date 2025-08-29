@@ -181,7 +181,7 @@ const Send: React.FC<Props> = ({ type }) => {
   const [usdcBal, setUSDCBal] = useState<number | null>(null);
 
   const getUSDBal = async () => {
-    const usdc_Bal: string = await readContract(getConfig(), {
+    const usdc_Bal: string = await readContract(getConfig, {
       address: TA,
       abi: erc20Abi,
       functionName: "balanceOf",
@@ -405,7 +405,7 @@ const Send: React.FC<Props> = ({ type }) => {
             )}
           </h1>
         </div>
-        <h1 style={{ fontWeight: "600" }}>CURRENCY</h1>
+        <h1 style={{ fontWeight: "600", fontSize: "24px" }}>CURRENCY</h1>
         <div className="currency-header">
           <select name="currencies" onClick={handleChange}>
             <option value="usdc">USDC</option>
