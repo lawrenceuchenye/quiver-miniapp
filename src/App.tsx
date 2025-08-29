@@ -43,7 +43,7 @@ const SplashScreen = () => {
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const userData = useQuiverStore((state) => state.userData);
+
   const isPay = useQuiverStore((state) => state.isPay);
   const billType = useQuiverStore((state) => state.billType);
   const billInfo = useQuiverStore((state) => state.billInfo);
@@ -55,9 +55,6 @@ function App() {
   const isViewTxDetailHistory = useQuiverStore(
     (state) => state.isViewTxDetailHistory
   );
-  const isCheckPIN = useQuiverStore((state) => state.isCheckPIN);
-  const isTxApproved = useQuiverStore((state) => state.isTxApproved);
-  const isDisablingPIN = useQuiverStore((state) => state.isDisablingPIN);
   const isChangeCardColor = useQuiverStore((state) => state.isChangeCardColor);
   const [isReady, setIsReady] = useState(false);
 
@@ -105,16 +102,10 @@ function App() {
       )}
       {isMobile && <MobileNav />}
       {isTransfer && <OffRamp />}
-      {offRampData && !isCheckPIN && <OffRampSummary />}
+      {offRampData && <OffRampSummary />}
       {isSettings && <Settings />}
       {isViewTxHistory && <TransactionHistory />}
       {isViewKYCForm && <KYCOverlay />}
-      {userData?.email && !userData.is_pin_active && <SetUpPIN />}
-      {userData?.pinHash && !userData.is_pin_active && <ConfirmPIN />}
-      {isCheckPIN && billInfo && isPay && <CheckPIN />}
-      {isCheckPIN && offRampData && <CheckPIN />}
-      {isCheckPIN && !isTxApproved && <CheckPIN />}
-      {isDisablingPIN && !isTxApproved && <CheckPIN />}
       {isChangeCardColor && <CardColors />}
       {/* <BatchComponent />*/}
       <FootBar />
