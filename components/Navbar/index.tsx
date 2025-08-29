@@ -117,7 +117,8 @@ const MobileNav: React.FC = () => {
             background: `url(${btnOverlayW}) no-repeat center center /
               cover,
             #000`,
-            fontSize: "16px",
+            fontSize: "18px",
+            padding: "12px 8px",
           }}
           whileTap={{ scale: 1.2 }}
           onClick={() => (!isConnected ? connectUser() : disconnectUser())}
