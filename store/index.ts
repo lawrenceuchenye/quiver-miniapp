@@ -5,13 +5,6 @@ let persistedState = await loadState();
 
 interface UserData {
   walletAddr: string;
-  role: string;
-  reg_date: string;
-  is_verified: boolean;
-  email: string;
-  pinHash: string | null;
-  is_pin_active: boolean;
-  is_pin_disabled: boolean;
   card_color: string | null;
 }
 

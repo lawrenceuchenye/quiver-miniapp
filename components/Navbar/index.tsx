@@ -6,12 +6,10 @@ import "./index.css";
 
 import { motion as m } from "framer-motion";
 import useQuiverStore from "../../store/";
-//import { useNavigate } from "react-router-dom";
 import { usePrivy } from "@privy-io/react-auth";
 import btnOverlayW from "../../src/assets/btnOverlayW.svg";
 import { loadState } from "../utils";
-import { useAccount, useConnect } from "wagmi";
-//import { useLocation } from "react-router-dom";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 const Navbar: React.FC = () => {
   const setConnectClicked = useQuiverStore((state) => state.setConnectClicked);
@@ -80,16 +78,19 @@ const MobileNav: React.FC = () => {
   const userData = useQuiverStore((state) => state.userData);
   const { isConnected, address } = useAccount();
   const { connect, connectors } = useConnect();
+  const { disconnect } = useDisconnect();
 
   const disconnectUser = async () => {
-    await logout();
     localStorage.removeItem("quiverUserSession");
     setUserData(null);
-    //navigate("");
+    disconnect();
   };
 
   const connectUser = async () => {
     connect({ connector: connectors[0] });
+    setUserData({
+      walletAddr: address,
+    });
   };
 
   return (
