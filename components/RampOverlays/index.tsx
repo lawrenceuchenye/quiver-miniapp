@@ -382,7 +382,7 @@ const OffRamp: React.FC = () => {
 
         <input
           type="text"
-          style={{ fontSize: "18px" }}
+          style={{ fontSize: "16px" }}
           placeholder="Wallet Address or Account Number"
           onBlur={targetBank && getBankInfo}
           onChange={(e) => {
@@ -435,7 +435,7 @@ const OffRamp: React.FC = () => {
         {targetID && !isEVMAddr(targetID) && (
           <input
             type="text"
-            style={{ fontSize: "18px" }}
+            style={{ fontSize: "16px" }}
             value={targetBank}
             onBlur={getBankInfo}
             placeholder="Bank Name"
