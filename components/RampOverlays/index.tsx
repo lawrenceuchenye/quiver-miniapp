@@ -150,6 +150,8 @@ const OffRamp: React.FC = () => {
 
   const sendUSDC = async (amount_) => {
     console.log(erc20Abi, TA, targetID, amount_);
+    console.log("targetID value:", targetID);
+    console.log("targetID type:", typeof targetID);
     try {
       await writeContract({
         address: TA,
