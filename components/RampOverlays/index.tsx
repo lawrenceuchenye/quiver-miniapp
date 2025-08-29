@@ -17,6 +17,8 @@ import { getNames } from "@coinbase/onchainkit/identity";
 import { base } from "viem/chains";
 import JSEncrypt from "jsencrypt";
 import btnOverlay from "../../src/assets/btnOverlay.svg";
+import { useWriteContract } from "wagmi";
+import { erc20Abi, parseUnits } from "viem";
 
 function sformatWalletAddress(address) {
   const session = localStorage.getItem("quiverUserSession");
@@ -82,6 +84,7 @@ const OffRamp: React.FC = () => {
   const setIsTransfer = useQuiverStore((state) => state.setIsTransfer);
   const isTxApproved = useQuiverStore((state) => state.isTxApproved);
   const setIsTxApproved = useQuiverStore((state) => state.setIsTxApproved);
+  const { writeContract } = useWriteContract();
 
   const getPrice = async () => {
     try {
@@ -115,11 +118,6 @@ const OffRamp: React.FC = () => {
   };
 
   const sendTx = () => {
-    if (!isTxApproved && !userData?.is_pin_disabled) {
-      setIsCheckPIN(true);
-      return;
-    }
-
     if (isEVMAddr(targetID)) {
       setIsEVMTarget(true);
     } else {
@@ -150,138 +148,129 @@ const OffRamp: React.FC = () => {
     }
   }, [isPending]);
 
-  const handlUserTx = async () => {
-    const userEmail = obfuscateEmail(user?.email["address"]);
+  const sendUSDC = async (amount_) => {
+    await writeContract({
+      address: TA,
+      abi: erc20Abi,
+      functionName: "transfer",
+      args: [targetID, parseUnits(amount_, 6)], // 5 USDC
+    });
+  };
 
-    if (isTxApproved || userData?.is_pin_disabled) {
-      console.log("processimng");
-      setIsTxApproved(false);
-      if (isEVMTarget) {
-        setIsProcessing(true);
-        const res = await axios.post(
-          `${API_ENDPOINT}/api/wallet_withdrawal_ops/`,
+  const handlUserTx = async () => {
+    if (isEVMTarget) {
+      setIsProcessing(true);
+      if (usdcBal < amount) {
+        toast.error(`INSUFFICIENT FUNDS`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
+      }
+      await sendUSDC(amount);
+      setIsSuccess(true);
+    } else {
+      if (!pricingData) {
+        toast.info("LOADING RATES ", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setIsTxApproved(false);
+        setIsProcessing(false);
+        return;
+      }
+
+      if (amount < 1000) {
+        toast.error(`AMOUNT TO LOW TO WITHDRAW MIN. NGN 1000`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setIsTxApproved(false);
+        setIsProcessing(false);
+        return;
+      }
+
+      if (usdcBal < roundToThree(amount / pricingData)) {
+        toast.error(`FUND WALLET TO TRANSACT`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        setIsTxApproved(false);
+        setIsProcessing(false);
+        return;
+      }
+
+      if (
+        usdcBal <
+        roundToThree(amount / pricingData) +
+          roundToThree(amount / pricingData) * 0.02
+      ) {
+        toast.error(
+          `INSUFFICIENT AMOUNT TO COVER FEE ${
+            roundToThree(amount / pricingData) * 0.02
+          }`,
           {
-            type: "transfer",
-            amount: amount,
-            from: userData?.walletAddr,
-            to: targetID,
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
           }
         );
-        setIsSuccess(res.data.success);
-        if (res.data.success) {
-          await axios.post(`${API_ENDPOINT}/api/create_tx/`, {
-            type: "CashFlow",
-            amount: -amount,
-            from: userData?.walletAddr,
-            to: targetID,
-          });
-          setIsProcessing(false);
-          setIsPending(true);
-        } else {
-          setIsPending(false);
-          setTimeout(() => {
-            setIsProcessing(false);
-            setIsTxApproved(false);
-            setIsEVMTarget(false);
-          }, 3000);
-        }
-      } else {
-        if (!pricingData) {
-          toast.info("LOADING RATES ", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          setIsTxApproved(false);
-          setIsProcessing(false);
-          return;
-        }
-
-        if (amount < 1000) {
-          toast.error(`AMOUNT TO LOW TO WITHDRAW MIN. NGN 1000`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          setIsTxApproved(false);
-          setIsProcessing(false);
-          return;
-        }
-
-        if (usdcBal < roundToThree(amount / pricingData)) {
-          toast.error(`FUND WALLET TO TRANSACT`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          setIsTxApproved(false);
-          setIsProcessing(false);
-          return;
-        }
-
-        if (
-          usdcBal <
-          roundToThree(amount / pricingData) +
-            roundToThree(amount / pricingData) * 0.02
-        ) {
-          toast.error(
-            `INSUFFICIENT AMOUNT TO COVER FEE ${
-              roundToThree(amount / pricingData) * 0.02
-            }`,
-            {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-            }
-          );
-          setIsTxApproved(false);
-          setIsProcessing(false);
-          return;
-        }
-
-        setIsProcessing(true);
-        const suggestedBank = getClosestText(targetBank, supportedBank)[0].data;
-        const hashId = await hashStringSHA256(
-          `${userData?.walletAddr} - ${targetID} - ${new Date()}`
-        );
-        setOffRampData({
-          amount: roundToThree((amount + 1) / pricingData),
-          token: "USDC",
-          rate: pricingData,
-          network: "base",
-          recipient: {
-            institution: suggestedBank.code,
-            accountIdentifier: targetID,
-            accountName: recvBank,
-            memo: `from ${userEmail}`,
-            providerId: "",
-          },
-          returnAddress: userData?.walletAddr,
-          reference: hashId,
-          bankName: targetBank,
-        });
+        setIsTxApproved(false);
         setIsProcessing(false);
+        return;
       }
+
+      setIsProcessing(true);
+      const suggestedBank = getClosestText(targetBank, supportedBank)[0].data;
+      const hashId = await hashStringSHA256(
+        `${userData?.walletAddr} - ${targetID} - ${new Date()}`
+      );
+      setOffRampData({
+        amount: roundToThree((amount + 1) / pricingData),
+        token: "USDC",
+        rate: pricingData,
+        network: "base",
+        recipient: {
+          institution: suggestedBank.code,
+          accountIdentifier: targetID,
+          accountName: recvBank,
+          memo: `from ${userEmail}`,
+          providerId: "",
+        },
+        returnAddress: userData?.walletAddr,
+        reference: hashId,
+        bankName: targetBank,
+      });
+      setIsProcessing(false);
     }
   };
 
