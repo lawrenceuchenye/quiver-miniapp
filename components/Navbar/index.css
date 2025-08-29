@@ -42,6 +42,7 @@
   text-transform: uppercase;
   font-family: "Monoton";
   transform: scale(1.4);
+  font-weight: 400;
 }
 
 .qn-mainNavContainer img {

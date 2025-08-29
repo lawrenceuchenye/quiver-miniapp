@@ -6,18 +6,18 @@ import "./index.css";
 
 import { motion as m } from "framer-motion";
 import useQuiverStore from "../../store/";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { usePrivy } from "@privy-io/react-auth";
 import btnOverlayW from "../../src/assets/btnOverlayW.svg";
 import { loadState } from "../utils";
-import { useLocation } from "react-router-dom";
+//import { useLocation } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const setConnectClicked = useQuiverStore((state) => state.setConnectClicked);
   const setUserData = useQuiverStore((state) => state.setUserData);
   const userData = useQuiverStore((state) => state.userData);
-  const navigate = useNavigate();
-  const location = useLocation();
+  //const navigate = useNavigate();
+  //  const location = useLocation();
 
   const { logout, login } = usePrivy();
 
@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
     await logout();
     localStorage.removeItem("quiverUserSession");
     setUserData(null);
-    navigate("");
+    //navigate("");
   };
 
   const connectUser = async () => {
@@ -34,11 +34,7 @@ const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
-    if (
-      localStorage.getItem("quiverUserSession") &&
-      location.pathname != "/home"
-    ) {
-      navigate("/home");
+    if (localStorage.getItem("quiverUserSession")) {
     }
   }, []);
 
@@ -81,14 +77,14 @@ const MobileNav: React.FC = () => {
   const setUserData = useQuiverStore((state) => state.setUserData);
 
   const userData = useQuiverStore((state) => state.userData);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const { logout, login } = usePrivy();
 
   const disconnectUser = async () => {
     await logout();
     localStorage.removeItem("quiverUserSession");
     setUserData(null);
-    navigate("");
+    //navigate("");
   };
 
   const connectUser = async () => {

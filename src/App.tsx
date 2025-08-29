@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { Navbar, MobileNav } from "../components/Navbar";
 import ConnectOverlay from "../components/ConnectOverlay";
 
-import Home from "./pages/Home";
-//import UserDashboard from "./pages/UserDashboard";
+//import Home from "./pages/Home";
+import UserDashboard from "./pages/UserDashboard";
 
 import { Send, Summary } from "../components/TransactionsOverlay";
 
@@ -20,8 +20,27 @@ import TransactionDetail from "../components/TransactionDetail";
 import KYCOverlay from "../components/KYCOverlay";
 import CardColors from "../components/CardColors";
 //import BatchComponent from "../components/BatchComponent";
+import Bimg from "../src/assets/bimg.svg";
 
 import { SetUpPIN, ConfirmPIN, CheckPIN } from "../components/PINOverlay";
+
+const SplashScreen = () => {
+  return (
+    <div className="splashScreen">
+      <h3>QUIVER</h3>
+      <p>"Stables for everyday life"</p>
+      <div className="servicesDiv">
+        <i className="fa-solid fa-sim-card"></i>
+        <i className="fa-solid fa-tv"></i>
+        <i className="fa-solid fa-wifi"></i>
+        <i className="fa-solid fa-bolt"></i>
+        <i className="fa-solid fa-money-bill-transfer"></i>
+      </div>
+      <img src={Bimg} />
+      <img className="img-2" src={Bimg} />
+    </div>
+  );
+};
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -42,20 +61,39 @@ function App() {
   const isTxApproved = useQuiverStore((state) => state.isTxApproved);
   const isDisablingPIN = useQuiverStore((state) => state.isDisablingPIN);
   const isChangeCardColor = useQuiverStore((state) => state.isChangeCardColor);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 1200 ? true : false);
   }, []);
 
   useEffect(() => {
+    setIsMobile(window.innerWidth < 1200 ? true : false);
+
+    const init = async () => {
+      // Simulate some async setup (fetch profile, settings, etc.)
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+
+      sdk.actions.ready(); // tell Farcaster splash to close
+      setIsReady(true); // show your app
+    };
+
+    init();
+  }, []);
+
+  useEffect(() => {
     sdk.actions.ready();
   }, []);
+
+  if (!isReady) {
+    return <SplashScreen />;
+  }
 
   return (
     <>
       <Navbar />
       <div style={{ overflowX: "hidden" }}>
-        <Home />
+        <UserDashboard />
       </div>
       {(isPay || billInfo) && !isViewTxDetailHistory && (
         <Send type={billType} />

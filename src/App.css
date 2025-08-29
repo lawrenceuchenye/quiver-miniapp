@@ -1,2 +1,48 @@
-@media (max-height: 1200px) {
+.splashScreen {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.splashScreen h3 {
+  font-family: "Monoton";
+  color: #fff;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.splashScreen p {
+  color: #fff;
+  font-family: "Roboto";
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+.splashScreen .servicesDiv i {
+  margin: 20px 15px;
+  margin-top: 50px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.splashScreen img {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  bottom: -60px;
+}
+
+.splashScreen .img-2 {
+  width: 100%;
+  height: 300px;
+  position: absolute;
+  top: -60px;
+  transform: rotate(180deg);
 }

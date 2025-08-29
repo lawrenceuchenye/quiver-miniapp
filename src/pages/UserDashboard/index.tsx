@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import useQuiverStore from "../../../store";
 import axios from "axios";
 import { usePrivy } from "@privy-io/react-auth";
-import { useNavigate } from "react-router-dom";
+
 import { set } from "date-fns";
 
 const Dashboard: React.FC = () => {
@@ -25,7 +25,6 @@ const Dashboard: React.FC = () => {
   const setIsViewKYCForm = useQuiverStore((state) => state.setIsViewKYCForm);
   const { user } = usePrivy();
   const setConnectClicked = useQuiverStore((state) => state.setConnectClicked);
-  const navigate = useNavigate();
   const [processedTxs, setProcessedTxs] = useState<string[]>([]);
 
   const lastProcessedBlockRef = useRef<number>(0);
@@ -140,7 +139,7 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     if (!userData) {
       setConnectClicked(true);
-      navigate("");
+      //navigate("");
     }
     if (!userData?.is_verified) {
       setIsViewKYCForm(true);
