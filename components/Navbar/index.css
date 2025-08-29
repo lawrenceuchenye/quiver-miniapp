@@ -36,6 +36,7 @@
 .qn-mainNavContainer div h3 {
   margin: 0 8px;
   cursor: pointer;
+  font-size: 10px;
 }
 
 .logoContainer h3 {
@@ -114,7 +115,7 @@
     border-radius: 8px;
     padding: 10px 16px;
     width: 90%;
-    margin: 10px 20px;
+    margin: 0;
     font-family: "Monoton";
     text-transform: uppercase;
   }
@@ -127,5 +128,11 @@
   .qn-mainNavContainer div:nth-child(3) {
     justify-content: right;
     display: none;
+  }
+
+  .qn-mobileNavContainer div h1 {
+    cursor: pointer;
+    position: relative;
+    left: -13px;
   }
 }

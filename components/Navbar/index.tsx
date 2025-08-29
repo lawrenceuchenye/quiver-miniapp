@@ -43,11 +43,11 @@ const Navbar: React.FC = () => {
       <div>
         <h3>
           <a
-            style={{ textDecoration: "none" }}
+            style={{
+              textDecoration: "none",
+            }}
             href="mailto:quiver.reach.official@gmail.com"
-          >
-            Support?
-          </a>
+          ></a>
         </h3>
       </div>
       <div className="logoContainer">
@@ -98,7 +98,12 @@ const MobileNav: React.FC = () => {
         <div>
           <h1>
             <a
-              style={{ textDecoration: "none" }}
+              style={{
+                textDecoration: "none",
+                fontSize: "26px",
+                color: "#000",
+                fontWeight: "400",
+              }}
               href="mailto:quiver.reach.official@gmail.com"
             >
               Support?
