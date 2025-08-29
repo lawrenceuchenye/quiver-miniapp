@@ -14,7 +14,7 @@ import { CA, TA, chain } from "../utils";
 import btnOverlayW from "../../src/assets/btnOverlayW.svg";
 import { toast } from "react-toastify";
 import cardBg from "../../src/assets/cardBg.svg";
-import { useLocation, useNavigate } from "react-router-dom";
+//import { useLocation, useNavigate } from "react-router-dom";
 
 const abbreviateNumber = (value, decimals = 2) => {
   if (value === 0) return "0";
@@ -96,7 +96,7 @@ const UserMoneyCard: React.FC = () => {
   };
 
   const getUSDBal = async () => {
-    const usdc_Bal: string = await readContract(getConfig(), {
+    const usdc_Bal: string = await readContract(getConfig, {
       address: TA,
       abi: erc20Abi,
       functionName: "balanceOf",

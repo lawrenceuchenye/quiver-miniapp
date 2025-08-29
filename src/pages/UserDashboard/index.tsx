@@ -148,8 +148,8 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="userDashboard">
-      <UserOverview />
-      <UserFinanceInfo />
+      {/*  <UserOverview />
+      <UserFinanceInfo />*/}
     </div>
   );
 };

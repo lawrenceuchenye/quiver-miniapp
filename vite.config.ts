@@ -7,4 +7,10 @@ export default defineConfig({
   server: {
     allowedHosts: true,
   },
+   build: {
+    target: "esnext", // ✅ allows top-level await
+  },
+  define: {
+    "process.env": {}, // 🩹 Patch to stop "process is not defined" error
+  },
 });
