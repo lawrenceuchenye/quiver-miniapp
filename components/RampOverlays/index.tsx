@@ -377,7 +377,7 @@ const OffRamp: React.FC = () => {
       >
         <div className="header">
           <img src={Logo} />
-          <h1>TRANSFER</h1>
+          <h1 style={{ fontWeight: "400" }}>TRANSFER</h1>
         </div>
 
         <input
