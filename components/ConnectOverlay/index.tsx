@@ -111,12 +111,12 @@ const index: React.FC = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("quiverUserSession")) {
+    /*if (localStorage.getItem("quiverUserSession")) {
       setWalletIsActive(false);
       setTimeout(() => {
         setWalletIsActive(true);
       }, 4500);
-    }
+    }*/
   }, []);
 
   return (

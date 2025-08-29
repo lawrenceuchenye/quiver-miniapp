@@ -3,7 +3,6 @@ import { sdk } from "@farcaster/frame-sdk";
 
 import { useEffect, useState } from "react";
 import { Navbar, MobileNav } from "../components/Navbar";
-import ConnectOverlay from "../components/ConnectOverlay";
 
 //import Home from "./pages/Home";
 import UserDashboard from "./pages/UserDashboard";
@@ -45,7 +44,6 @@ const SplashScreen = () => {
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const userData = useQuiverStore((state) => state.userData);
-  const connectClicked = useQuiverStore((state) => state.connectClicked);
   const isPay = useQuiverStore((state) => state.isPay);
   const billType = useQuiverStore((state) => state.billType);
   const billInfo = useQuiverStore((state) => state.billInfo);
@@ -106,7 +104,6 @@ function App() {
         <TransactionDetail billInfo={billInfo} serviceName={billType} />
       )}
       {isMobile && <MobileNav />}
-      {connectClicked && <ConnectOverlay />}
       {isTransfer && <OffRamp />}
       {offRampData && !isCheckPIN && <OffRampSummary />}
       {isSettings && <Settings />}
