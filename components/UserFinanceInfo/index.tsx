@@ -125,96 +125,89 @@ const UserMoneyCard: React.FC = () => {
       });
   };
 
-  if (!localStorage.getItem("quiverUserSession")) {
-    navigate("/");
-  } else {
-    return (
-      <m.div
-        className="cardContainer"
-        style={{
-          background: `url(${cardBg}) no-repeat center center /
+  return (
+    <m.div
+      className="cardContainer"
+      style={{
+        background: `url(${cardBg}) no-repeat center center /
               cover,
              ${userData?.card_color ? userData?.card_color : "#000"}`,
-        }}
-      >
-        <div className="cardInfo-1">
-          <h3 style={{ fontWeight: "600" }}>
-            {usdcBal && isViewBal
-              ? `${roundToTwo(usdcBal)}`
-              : usdcBal == 0
-              ? "0"
-              : "****"}{" "}
-            USDC
-          </h3>
+      }}
+    >
+      <div className="cardInfo-1">
+        <h3 style={{ fontWeight: "600" }}>
+          {usdcBal && isViewBal
+            ? `${roundToTwo(usdcBal)}`
+            : usdcBal == 0
+            ? "0"
+            : "****"}{" "}
+          USDC
+        </h3>
 
-          <h3 style={{ textTransform: "uppercase" }}>Base</h3>
-        </div>
-        <h2 style={{ fontSize: "18px" }}>
-          {formatWalletAddress(userData?.walletAddr)}{" "}
-          {copied ? (
-            <i
-              className="fa-solid fa-clipboard"
-              style={{ marginLeft: "8px" }}
-            ></i>
-          ) : (
-            <i
-              onClick={() => copyToClipboard(userData?.walletAddr)}
-              style={{ marginLeft: "8px" }}
-              className="fa-solid fa-copy"
-            ></i>
-          )}
-        </h2>
+        <h3 style={{ textTransform: "uppercase" }}>Base</h3>
+      </div>
+      <h2 style={{ fontSize: "18px" }}>
+        {formatWalletAddress(userData?.walletAddr)}{" "}
+        {copied ? (
+          <i
+            className="fa-solid fa-clipboard"
+            style={{ marginLeft: "8px" }}
+          ></i>
+        ) : (
+          <i
+            onClick={() => copyToClipboard(userData?.walletAddr)}
+            style={{ marginLeft: "8px" }}
+            className="fa-solid fa-copy"
+          ></i>
+        )}
+      </h2>
 
-        <div
-          className="cardInfo-2"
-          style={{ textTransform: "uppercase" }}
-        ></div>
+      <div className="cardInfo-2" style={{ textTransform: "uppercase" }}></div>
 
-        <div className="enbTokenHolder">
-          <p>
-            <m.i
-              class="fa-solid fa-bell"
-              whileTap={{ scale: 1.2 }}
-              onClick={() => {
-                toast.error("ONLY USDC ON BASE SUPPORTED", {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-                });
-              }}
-            ></m.i>
-          </p>
-          {/*<p>
+      <div className="enbTokenHolder">
+        <p>
+          <m.i
+            class="fa-solid fa-bell"
+            whileTap={{ scale: 1.2 }}
+            onClick={() => {
+              toast.error("ONLY USDC ON BASE SUPPORTED", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+              });
+            }}
+          ></m.i>
+        </p>
+        {/*<p>
             <m.i class="fa-solid fa-box" whileTap={{ scale: 1.2 }}></m.i>
             <h1 className="batch-n">{billBatch?.length}</h1>
           </p>*/}
-          <p>
-            <m.i
-              className="fa-solid fa-gear"
-              whileTap={{ scale: 1.2 }}
-              onClick={() => setIsSettings(true)}
-            ></m.i>
-          </p>
+        <p>
+          <m.i
+            className="fa-solid fa-gear"
+            whileTap={{ scale: 1.2 }}
+            onClick={() => setIsSettings(true)}
+          ></m.i>
+        </p>
 
-          <p onClick={() => setIsViewBal(!isViewBal)}>
-            {!isViewBal ? (
-              <m.i className="fa-solid fa-eye" whileTap={{ scale: 1.2 }}></m.i>
-            ) : (
-              <m.i
-                className="fa-solid fa-eye-slash"
-                whileTap={{ scale: 1.2 }}
-              ></m.i>
-            )}
-          </p>
-        </div>
-      </m.div>
-    );
-  }
+        <p onClick={() => setIsViewBal(!isViewBal)}>
+          {!isViewBal ? (
+            <m.i className="fa-solid fa-eye" whileTap={{ scale: 1.2 }}></m.i>
+          ) : (
+            <m.i
+              className="fa-solid fa-eye-slash"
+              whileTap={{ scale: 1.2 }}
+            ></m.i>
+          )}
+        </p>
+      </div>
+    </m.div>
+  );
 };
 
 const colors = ["#FF7A00", "#00BFFF", "#FFD700", "#6A0DAD", "#2ECC71"];

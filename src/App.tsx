@@ -16,7 +16,7 @@ import { OffRamp, OffRampSummary } from "../components/RampOverlays";
 import Settings from "../components/Settings";
 import TransactionHistory from "../components/TransactionHistory";
 import TransactionDetail from "../components/TransactionDetail";
-import KYCOverlay from "../components/KYCOverlay";
+
 import CardColors from "../components/CardColors";
 //import BatchComponent from "../components/BatchComponent";
 import Bimg from "../src/assets/bimg.svg";
@@ -48,7 +48,7 @@ function App() {
   const offRampData = useQuiverStore((state) => state.offRampData);
   const isSettings = useQuiverStore((state) => state.isSettings);
   const isViewTxHistory = useQuiverStore((state) => state.isViewTxHistory);
-  const isViewKYCForm = useQuiverStore((state) => state.isViewKYCForm);
+
   const isViewTxDetailHistory = useQuiverStore(
     (state) => state.isViewTxDetailHistory
   );
@@ -102,7 +102,6 @@ function App() {
       {offRampData && <OffRampSummary />}
       {isSettings && <Settings />}
       {isViewTxHistory && <TransactionHistory />}
-      {isViewKYCForm && <KYCOverlay />}
       {isChangeCardColor && <CardColors />}
       {/* <BatchComponent />*/}
       <FootBar />
