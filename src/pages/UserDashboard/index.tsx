@@ -22,9 +22,7 @@ const Dashboard: React.FC = () => {
     (state) => state.incrementRefreshCount
   );
   const setIsPending = useQuiverStore((state) => state.setIsPending);
-  const setIsViewKYCForm = useQuiverStore((state) => state.setIsViewKYCForm);
-  const { user } = usePrivy();
-  const setConnectClicked = useQuiverStore((state) => state.setConnectClicked);
+
   const [processedTxs, setProcessedTxs] = useState<string[]>([]);
 
   const lastProcessedBlockRef = useRef<number>(0);
@@ -111,40 +109,17 @@ const Dashboard: React.FC = () => {
     return setInterval(pollBalance, 5000); // Poll every 2.5s
   };
 
-  const isVerified = async () => {
-    const res = await axios.post(`${API_ENDPOINT}/api/is_verified/`, {
-      email: userData.email,
-    });
-
-    if (res.data.success) {
-      setUserData({ ...userData, is_verified: true });
-      setIsViewKYCForm(false);
-    } else {
-      setUserData({ ...userData, is_verified: false });
-      setIsViewKYCForm(true);
-    }
-  };
-
   useEffect(() => {
     const intervalId = setUSDCBalListener(
       userData?.walletAddr ? userData?.walletAddr : "0x"
     );
 
-    isVerified();
     return () => {
       clearInterval(intervalId);
     };
   }, []);
 
-  useEffect(() => {
-    if (!userData) {
-      setConnectClicked(true);
-      //navigate("");
-    }
-    if (!userData?.is_verified) {
-      setIsViewKYCForm(true);
-    }
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="userDashboard">
