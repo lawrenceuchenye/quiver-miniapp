@@ -149,12 +149,17 @@ const OffRamp: React.FC = () => {
   }, [isPending]);
 
   const sendUSDC = async (amount_) => {
-    await writeContract({
-      address: TA,
-      abi: erc20Abi,
-      functionName: "transfer",
-      args: [targetID, parseUnits(amount_, 6)], // 5 USDC
-    });
+    try {
+      await writeContract({
+        address: TA,
+        abi: erc20Abi,
+        functionName: "transfer",
+        args: [targetID, parseUnits(amount_, 6)], // 5 USDC
+      });
+    } catch (e) {
+      console.log(e);
+      setIsProcessing(false);
+    }
   };
 
   const handlUserTx = async () => {
