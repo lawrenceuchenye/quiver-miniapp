@@ -15,8 +15,6 @@ const Navbar: React.FC = () => {
   const setConnectClicked = useQuiverStore((state) => state.setConnectClicked);
   const setUserData = useQuiverStore((state) => state.setUserData);
   const userData = useQuiverStore((state) => state.userData);
-  //const navigate = useNavigate();
-  //  const location = useLocation();
 
   const { logout, login } = usePrivy();
 
@@ -119,6 +117,7 @@ const MobileNav: React.FC = () => {
             background: `url(${btnOverlayW}) no-repeat center center /
               cover,
             #000`,
+            fontSize: "16px",
           }}
           whileTap={{ scale: 1.2 }}
           onClick={() => (!isConnected ? connectUser() : disconnectUser())}
