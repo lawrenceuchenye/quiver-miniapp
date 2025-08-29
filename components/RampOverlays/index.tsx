@@ -530,6 +530,7 @@ const OffRamp: React.FC = () => {
                         cover,
                       #000`,
             padding: "12px 8px",
+            fontSize: "16px",
           }}
           onClick={() =>
             !isProcessing && sendTx(targetID ? targetID : "0x", amount)
