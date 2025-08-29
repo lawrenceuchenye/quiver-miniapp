@@ -445,7 +445,6 @@ const OffRamp: React.FC = () => {
           <input
             type="number"
             placeholder="Amount"
-            style={{ fontSize: "30px" }}
             value={!Number.isNaN(amount) && amount}
             max={targetID && isEVMAddr(targetID) ? 100 : 100000}
             onChange={(e) => setAmount(parseFloat(e.target.value))}
