@@ -20,9 +20,6 @@ import KYCOverlay from "../components/KYCOverlay";
 import CardColors from "../components/CardColors";
 //import BatchComponent from "../components/BatchComponent";
 import Bimg from "../src/assets/bimg.svg";
-
-import { SetUpPIN, ConfirmPIN, CheckPIN } from "../components/PINOverlay";
-
 const SplashScreen = () => {
   return (
     <div className="splashScreen">
