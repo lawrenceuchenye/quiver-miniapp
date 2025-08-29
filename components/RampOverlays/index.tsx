@@ -382,6 +382,7 @@ const OffRamp: React.FC = () => {
 
         <input
           type="text"
+          style={{ fontSize: "30px" }}
           placeholder="Wallet Address or Account Number"
           onBlur={targetBank && getBankInfo}
           onChange={(e) => {
