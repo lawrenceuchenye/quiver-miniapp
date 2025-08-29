@@ -1,12 +1,12 @@
 import { sdk } from "@farcaster/frame-sdk";
-import { useAccount, useConnect, useSignMessage } from "wagmi";
+//import { useAccount, useConnect, useSignMessage } from "wagmi";
 
 import { useEffect, useState } from "react";
 import { Navbar, MobileNav } from "../components/Navbar";
 import ConnectOverlay from "../components/ConnectOverlay";
 
 import Home from "./pages/Home";
-import UserDashboard from "./pages/UserDashboard";
+//import UserDashboard from "./pages/UserDashboard";
 
 import { Send, Summary } from "../components/TransactionsOverlay";
 
@@ -87,6 +87,7 @@ function App() {
   );
 }
 
+/*
 function ConnectMenu() {
   const { isConnected, address } = useAccount();
   const { connect, connectors } = useConnect();
@@ -135,5 +136,5 @@ function SignButton() {
     </>
   );
 }
-
+*/
 export default App;
