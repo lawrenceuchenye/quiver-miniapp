@@ -1,7 +1,19 @@
 {
-  "name": "Quiver",
-  "url": "https://quiver-miniapp.vercel.app",
-  "icon": "https://res.cloudinary.com/djxs8mu07/image/upload/v1754782775/Frame_497_2_neqffu.png",
-  "description": "stablecoins for everyday life for you and your business",
-  "type": "app"
+  "frame": {
+    "name": "Quiver",
+    "homeUrl": "https://quiver-miniapp.vercel.app",
+    "iconUrl": "https://res.cloudinary.com/djxs8mu07/image/upload/v1754782775/Frame_497_2_neqffu.png",
+    "version": "1",
+    "subtitle": "connect and pay",
+    "webhookUrl": "https://quiver-miniapp.vercel.app/api/webhook",
+    "description": "stablecoins for everyday life for you and your business",
+    "splashImageUrl": "https://res.cloudinary.com/djxs8mu07/image/upload/v1754782775/Frame_497_2_neqffu.png",
+    "primaryCategory": "utility",
+    "splashBackgroundColor": "#000000"
+  },
+  "accountAssociation": {
+    "header": "eyJmaWQiOjgwOTk0MywidHlwZSI6ImF1dGgiLCJrZXkiOiIweDczMGJjOGE0RkU5YzFGOEU1NmUwNTUwMjA2RmU4ODZBNTBFMjA4ZUUifQ",
+    "payload": "eyJkb21haW4iOiJxdWl2ZXItbWluaWFwcC52ZXJjZWwuYXBwIn0",
+    "signature": "OZeaABsvZ7l9fdlQ0gN7ZJ3K7RY+V1HdobZ2+sagWD4m+alyRYDxDaTAK8fNZwItRq5ateTKodU1tfBVXsJQKhw="
+  }
 }
