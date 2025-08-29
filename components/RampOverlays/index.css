@@ -1,0 +1,228 @@
+.rampOverlay {
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+  position: fixed;
+}
+
+.offRampContainer {
+  width: 40%;
+  height: max-content;
+  background: #fff;
+  border-radius: 30px;
+  padding: 20px 10px;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.offRampContainer input {
+  width: 80%;
+  border-radius: 8px;
+  padding: 10px 8px;
+  margin: 10px 0;
+  font-family: "Poppins";
+  border: 1px solid #2e2e2e;
+  outline: none;
+  background: oklch(96.8% 0.007 247.896);
+  text-align: center;
+}
+
+.offRampContainer .accountOwner {
+  width: 80%;
+  border-radius: 8px;
+  padding: 10px 8px;
+  margin: 10px 0;
+  font-family: "Poppins";
+  border: 1px solid #2e2e2e;
+  outline: none;
+  background: oklch(87.1% 0.15 154.449);
+  text-align: center;
+}
+
+.offRampContainer input[type="number"] {
+  width: max-content;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 10px 8px;
+  margin: 10px 0;
+  text-align: center;
+  font-family: "Poppins";
+  outline: none;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  font-family: "Rowdies";
+}
+
+.offRampContainer button {
+  background: url("../src/assets/btnOverlayW.svg") no-repeat center center /
+      cover,
+    #000;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 80%;
+  margin: 5px auto;
+  margin-top: 20px;
+  font-family: "rowdies";
+  text-transform: uppercase;
+}
+
+.offRampContainer .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.offRampContainer .header img {
+  width: 40px;
+  height: 40px;
+}
+
+.offRampContainer .header h1 {
+  font-family: "Monoton";
+  text-transform: uppercase;
+  font-size: 28px;
+  margin-left: 10px;
+}
+
+.amntContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amntContainer h1 {
+  font-family: "Poppins";
+  font-size: 26px;
+  position: relative;
+  left: -80px;
+  font-weight: 600;
+}
+
+.ratesContainer {
+  width: 80%;
+  text-align: left;
+  margin: 10px auto;
+}
+
+.ratesContainer div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 8px;
+}
+
+.ratesContainer div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-align: center;
+}
+
+.ratesContainer span {
+  margin: 0 5px;
+}
+
+.walletAddressTag {
+  background: oklch(87.1% 0.15 154.449);
+  border-radius: 8px;
+  padding: 10px 8px;
+  margin: 5px auto;
+  margin-top: 0;
+  font-family: "Poppins";
+  border: 1px solid #2e2e2e;
+  outline: none;
+  width: 70%;
+  font-weight: 500;
+}
+
+.walletAddressTag p {
+  margin: 0 auto;
+}
+
+.offRampSummaryOverlay {
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+  position: fixed;
+}
+
+.offRampSummaryOverlay .line {
+  height: 3px;
+  width: 80%;
+  background: oklch(96.8% 0.007 247.896);
+}
+
+.section-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 80%;
+  margin: 10px auto;
+  font-family: "Poppins";
+}
+
+.section-1 div:nth-child(1) h3 {
+  font-weight: 800;
+}
+
+.section-1 div:nth-child(2) {
+  text-align: right;
+}
+
+.section-1 div:nth-child(2) p span {
+  margin: 0 5px;
+}
+
+.offRampSummaryOverlay button {
+  background: url("../src/assets/btnOverlayW.svg") no-repeat center center /
+      cover,
+    #000;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 80%;
+  margin: 5px auto;
+  margin-top: 20px;
+  font-family: "rowdies";
+  text-transform: uppercase;
+}
+
+.offRampSummaryOverlay button i {
+  margin-left: 15px;
+}
+
+@media (max-width: 750px) {
+  .offRampSummaryOverlay {
+    align-items: end;
+  }
+
+  .rampOverlay {
+    align-items: end;
+  }
+
+  .offRampContainer {
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+  }
+}

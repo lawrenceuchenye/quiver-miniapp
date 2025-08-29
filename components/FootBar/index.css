@@ -1,0 +1,44 @@
+.footBar {
+  background: #000;
+  margin-top: 20px;
+  min-height: 100px;
+  color: #fff;
+  font-family: "Poppins";
+  padding: 16px 0;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: underline;
+  flex-wrap: wrap;
+}
+
+.links h3 {
+  cursor: pointer;
+}
+
+.copyrightContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyrightContainer h1 {
+  margin: 20px auto;
+}
+
+@media (max-width: 1200px) {
+  .footBar {
+    padding-bottom: 150px;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+
+  .links h3 {
+    margin: 10px 0;
+  }
+}

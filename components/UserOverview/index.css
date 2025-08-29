@@ -1,0 +1,102 @@
+.ovContainer {
+  width: 300px;
+  margin: 10px 20px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 8px;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ovContainer h1 {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.ovContainer p {
+  text-transform: capitalize;
+  font-family: "Poppins";
+  text-decoration: underline;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.insideOvContainer {
+  width: 90%;
+  margin: 10px auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 8px;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.insideOvContainer p {
+  text-transform: capitalize;
+  font-family: "Poppins";
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.bar {
+  width: 100%;
+  height: 5px;
+  background: #000;
+  border-radius: 8px;
+
+  margin-bottom: 10px;
+}
+
+.serviceStatContainer {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.serviceStatContainer h1 i {
+  margin-left: 10px;
+}
+
+.moreContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.moreContainer i {
+  cursor: pointer;
+}
+
+.exportButton {
+  font-family: "Poppins";
+  background: #000;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: capitalize;
+  font-size: 15px;
+  position: relative;
+  top: -20px;
+  cursor: pointer;
+}
+
+.exportButton i {
+  margin-right: 5px;
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overview-header p {
+  font-family: "Poppins";
+  text-decoration: none;
+  font-size: 14px;
+}
+@media (max-width: 1200px) {
+  .ovContainer {
+    width: 350px;
+  }
+}

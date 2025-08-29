@@ -1,0 +1,12 @@
+.userDashboard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 95px;
+}
+
+@media (max-width: 1200px) {
+  .userDashboard {
+    flex-direction: column-reverse;
+  }
+}

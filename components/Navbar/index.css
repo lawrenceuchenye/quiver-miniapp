@@ -1,0 +1,130 @@
+.qn-mainNavContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 15px;
+  font-family: "Poppins";
+  background: rgba(259, 259, 259);
+  margin: 20px auto;
+  border-radius: 36px;
+  width: 80%;
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.qn-mainNavContainer div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  width: 30%;
+  position: relative;
+  z-index: 3;
+}
+
+.qn-mainNavContainer div:nth-child(1) {
+  justify-content: left;
+}
+
+.qn-mainNavContainer div:nth-child(3) {
+  justify-content: right;
+}
+
+.qn-mainNavContainer div h3 {
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+.logoContainer h3 {
+  text-transform: uppercase;
+  font-family: "Monoton";
+  transform: scale(1.4);
+}
+
+.qn-mainNavContainer img {
+  height: 25px;
+  margin-right: 25px;
+}
+
+.qn-mainNavContainer button {
+  font-family: "Monoton";
+  color: white;
+  border-radius: 8px 15px 15px 8px;
+  padding: 6px 16px;
+  background: url("/assets/btnOverlayW.svg") no-repeat center center / cover,
+    #000;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.qn-mainNavContainer button i {
+  margin-left: 10px;
+}
+
+.qn-mobileNavContainer {
+  background: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  padding: 20px 20px;
+  font-family: "Poppins";
+}
+
+.qn-mobileNavContainer div {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0px 20px;
+}
+
+.qn-mobileNavContainer button {
+  background: #000;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 16px;
+  width: 90%;
+  margin: 10px 20px;
+  font-family: "Monoton";
+  text-transform: uppercase;
+}
+
+.qn-mobileNavContainer button i {
+  margin-left: 10px;
+}
+
+@media (max-width: 1200px) {
+  .qn-mainNavContainer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    margin: 0 auto;
+  }
+
+  .qn-mobileNavContainer button {
+    background: url("/assets/btnOverlayW.svg") no-repeat center center / cover,
+      #000;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 16px;
+    width: 90%;
+    margin: 10px 20px;
+    font-family: "Monoton";
+    text-transform: uppercase;
+  }
+
+  .qn-mainNavContainer div:nth-child(1) {
+    justify-content: left;
+    display: none;
+  }
+
+  .qn-mainNavContainer div:nth-child(3) {
+    justify-content: right;
+    display: none;
+  }
+}

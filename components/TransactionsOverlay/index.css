@@ -1,0 +1,368 @@
+.overlay-Container {
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+  position: fixed;
+}
+
+.connectForm {
+  width: 40%;
+  height: max-content;
+  background: #fff;
+  border-radius: 30px;
+  padding: 20px 32px;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.connectForm h1 {
+  font-family: "Poppins";
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.header {
+  font-size: 30px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.connectForm p {
+  margin: 10px;
+  font-family: "Poppins";
+}
+
+.connectForm select {
+  width: 50%;
+  height: max-content;
+  border-radius: 8px;
+  background: oklch(92.8% 0.006 264.531);
+  padding: 4px 8px;
+  font-family: "Poppins";
+  outline: none;
+}
+
+.connectForm .currency-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  font-family: "Poppins";
+  font-weight: 800;
+}
+
+.connectForm .currency-header i {
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+.connectForm .txData {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.connectForm .txData input {
+  font-family: "Poppins";
+  border-radius: 3px;
+  border: 1px solid #2e2e2e;
+  min-width: 50%;
+  padding: 4px 8px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+}
+
+.connectForm button {
+  background: url("../src/assets/btnOverlayW.svg") no-repeat center center /
+      cover,
+    #000;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  width: 100%;
+  margin: 5px auto;
+  margin-top: 10px;
+  font-family: "rowdies";
+}
+
+.recWalletAddress {
+  width: 100%;
+}
+
+.connectForm .recWalletAddress input {
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 5px;
+  background: oklch(92.8% 0.006 264.531);
+  padding: 4px 8px;
+  font-family: "Poppins";
+  outline: none;
+}
+
+.airtime-container input {
+  font-family: "Poppins";
+  border: 0px solid #2e2e2e;
+  border-radius: 8px;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px 5px;
+  outline: none;
+  background: oklch(96.8% 0.007 247.896);
+}
+
+.airtime-container select {
+  width: 100%;
+}
+
+.data-header select {
+  margin: 0px 10px;
+}
+
+.data-container .data-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.data-container input {
+  font-family: "Poppins";
+  border: 0px solid #2e2e2e;
+  border-radius: 8px;
+  width: 100%;
+  margin: 20px 0;
+  margin-bottom: 10px;
+  padding: 10px 5px;
+  outline: none;
+  background: oklch(96.8% 0.007 247.896);
+}
+
+.connectForm .data-container .plans {
+  width: 96.2%;
+  height: max-content;
+  border-radius: 5px;
+  background: oklch(92.8% 0.006 264.531);
+  padding: 4px 8px;
+  margin: 0px auto;
+  margin-left: 9.3px;
+  font-family: "Poppins";
+  outline: none;
+  margin-top: 15px;
+}
+
+.netDetector {
+  width: max-content;
+  height: max-content;
+  font-weight: 800;
+  font-family: "Poppins";
+  padding: 4px 8px;
+  color: oklch(70.4% 0.04 256.788);
+  background: oklch(92.9% 0.013 255.508);
+  border-radius: 25px;
+  margin: 10px 0;
+}
+
+.overlays-Container {
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+  position: fixed;
+}
+
+.summaryForm {
+  width: 40%;
+  height: max-content;
+  background: #fff;
+  border-radius: 30px;
+  padding: 16px 18px;
+  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+}
+
+.summaryForm hr {
+  margin: 0px auto;
+}
+
+.summaryForm h3 {
+  font-family: "Poppins";
+}
+
+.sfHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins";
+}
+
+.sfHeader h1 {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.sfHeader img {
+  width: 30px;
+  height: 30px;
+}
+
+.serviceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serviceHeader h1 {
+  font-family: "Poppins";
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.serviceDiv {
+  font-family: "Poppins";
+}
+
+.summaryForm button {
+  background: url("../src/assets/btnOverlay.svg") no-repeat center center /
+      cover,
+    oklch(72.3% 0.219 149.579);
+  color: white;
+  border-radius: 8px;
+  padding: 6px 16px;
+  cursor: pointer;
+  width: 100%;
+  margin: 5px auto;
+  margin-top: 20px;
+  font-family: "rowdies";
+  text-transform: uppercase;
+}
+
+.summaryForm .billInfo div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  font-family: "Rowdies";
+}
+
+.summaryForm .billInfo div h4 {
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+.summaryForm .btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summaryForm .btn-container button i {
+  margin-left: 15px;
+}
+
+.summaryForm .line {
+  height: 3px;
+  width: 100%;
+  background: oklch(96.8% 0.007 247.896);
+  margin: 8px auto;
+}
+
+.meterOwner {
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin: 4px 0;
+  font-family: "Poppins";
+  border: 1px solid #2e2e2e;
+  outline: none;
+  background: oklch(87.1% 0.15 154.449);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.batch-btn i {
+  margin-left: 10px;
+}
+
+@media (max-width: 1200px) {
+  .overlay-Container {
+    align-items: center;
+  }
+
+  .connectForm {
+    width: 100%;
+    justify-content: left;
+    position: absolute;
+    bottom: 0px;
+    padding: 20px 15px;
+    border-radius: 30px 30px 0 0;
+  }
+
+  .overlays-Container {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    z-index: 15;
+    position: fixed;
+  }
+
+  .summaryForm {
+    width: 100%;
+    justify-content: left;
+    border-radius: 30px 30px 0 0;
+  }
+
+  .connectForm select {
+    width: 100%;
+    height: max-content;
+    padding: 10px 8px;
+  }
+
+  .connectForm .currency-header select {
+    width: 50%;
+  }
+
+  .connectForm .currency-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: "Poppins";
+    font-weight: 800;
+  }
+
+  .connectForm .txData {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .connectForm .txData input {
+    width: 60%;
+  }
+
+  .connectForm {
+    margin-top: 10%;
+  }
+}
