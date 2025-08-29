@@ -149,6 +149,7 @@ const OffRamp: React.FC = () => {
   }, [isPending]);
 
   const sendUSDC = async (amount_) => {
+    console.log(erc20Abi, TA, targetID, amount_);
     try {
       await writeContract({
         address: TA,
