@@ -9,7 +9,7 @@ import { transferUSDC } from "../encodeFuncHelper";
 import useQuiverStore from "../../store";
 import { toast } from "react-toastify";
 import Loader from "../Loader";
-import { getClosestSent, getClosestText } from "../utils";
+import { getClosestSent, getClosestText, TA } from "../utils";
 import btnOverlayW from "../../src/assets/btnOverlayW.svg";
 import { API_ENDPOINT, hashStringSHA256 } from "../utils";
 import { usePrivy } from "@privy-io/react-auth";
@@ -159,7 +159,6 @@ const OffRamp: React.FC = () => {
 
   const handlUserTx = async () => {
     if (isEVMTarget) {
-      setIsProcessing(true);
       if (usdcBal < amount) {
         toast.error(`INSUFFICIENT FUNDS`, {
           position: "top-right",
@@ -173,6 +172,7 @@ const OffRamp: React.FC = () => {
         });
         return;
       }
+      setIsProcessing(true);
       await sendUSDC(amount);
       setIsSuccess(true);
     } else {
