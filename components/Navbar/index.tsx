@@ -88,10 +88,13 @@ const MobileNav: React.FC = () => {
 
   const connectUser = async () => {
     connect({ connector: connectors[0] });
+  };
+
+  useEffect(() => {
     setUserData({
       walletAddr: address,
     });
-  };
+  }, [address]);
 
   return (
     <>
